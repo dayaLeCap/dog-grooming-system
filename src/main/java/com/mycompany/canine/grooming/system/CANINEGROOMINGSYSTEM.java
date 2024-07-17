@@ -4,6 +4,8 @@
 
 package com.mycompany.canine.grooming.system;
 
+import com.mycompany.canine.grooming.system.IGU.Dashboard;
+
 /**
  *
  * @author User
@@ -11,6 +13,7 @@ package com.mycompany.canine.grooming.system;
 public class CANINEGROOMINGSYSTEM {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
     }
 }
