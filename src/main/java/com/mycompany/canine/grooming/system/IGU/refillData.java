@@ -16,25 +16,25 @@ public class refillData extends javax.swing.JPanel {
     private void estilosIniciales() {
         title.putClientProperty("FlatLaf.styleClass", "h1");
         title.setForeground(Color.black);
-        txtNCliente.putClientProperty("JTextField.placeholderText", "Enter the Customer Number");
-        txtNombrePerro.putClientProperty("JTextField.placeholderText", "Enter the Dog's Name");
-        txtRaza.putClientProperty("JTextField.placeholderText", "Enter Dog Breed");
+        txtNClient.putClientProperty("JTextField.placeholderText", "Enter the Customer Number");
+        txtDogName.putClientProperty("JTextField.placeholderText", "Enter the Dog's Name");
+        txtRace.putClientProperty("JTextField.placeholderText", "Enter Dog Breed");
         txtColor.putClientProperty("JTextField.placeholderText", "Enter Dog Color");
-        txtNombreDueño.putClientProperty("JTextField.placeholderText", "Enter Dog Owner");
-        txtCelDueño.putClientProperty("JTextField.placeholderText", "Enter the Owner's Cell Phone");
+        txtOwnersName.putClientProperty("JTextField.placeholderText", "Enter Dog Owner");
+        txtCellOwner.putClientProperty("JTextField.placeholderText", "Enter the Owner's Cell Phone");
     }
 
-    private void limpiarCampos() {
+    private void cleanFields() {
         String m = "";
-        txtCelDueño.setText(m);
+        txtCellOwner.setText(m);
         txtColor.setText(m);
-        txtNCliente.setText(m);
-        txtNombrePerro.setText(m);
-        txtRaza.setText(m);
-        txtNombreDueño.setText(m);
+        txtNClient.setText(m);
+        txtDogName.setText(m);
+        txtRace.setText(m);
+        txtOwnersName.setText(m);
         //para los combo box
-        cbxAlergico.setSelectedIndex(0);
-        cbxAtencionEspecial.setSelectedIndex(0);
+        cbxAllergic.setSelectedIndex(0);
+        cbxSpecialAttention.setSelectedIndex(0);
     }
 
     private void registerData() {
@@ -49,8 +49,8 @@ public class refillData extends javax.swing.JPanel {
         int cellOwner;
 
         //Owner
-        nameOwner = txtNombreDueño.getText();
-        cellOwner = Integer.parseInt(txtCelDueño.getText());
+        nameOwner = txtOwnersName.getText();
+        cellOwner = Integer.parseInt(txtCellOwner.getText());
         owner.setName(nameOwner);
         owner.setCellOwner(cellOwner);
 
@@ -63,12 +63,12 @@ public class refillData extends javax.swing.JPanel {
         String special_attention;
         String observations;
         //Let's obtain the data through the fields that are in the form
-        name = txtNombrePerro.getText();
-        race = txtRaza.getText();
+        name = txtDogName.getText();
+        race = txtRace.getText();
         color = txtColor.getText();
-        allergic = cbxAlergico.getSelectedItem().toString();
-        special_attention = cbxAtencionEspecial.getSelectedItem().toString();
-        observations = txtObervaciones.getText();
+        allergic = cbxAllergic.getSelectedItem().toString();
+        special_attention = cbxSpecialAttention.getSelectedItem().toString();
+        observations = txtObservations.getText();
 
         //we set the data to the objects
         pet.setName(name);
@@ -81,8 +81,8 @@ public class refillData extends javax.swing.JPanel {
 
         //we invoke the register-Pet method
         petImplemented.registerPet(owner, pet);
-        JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "Pet Successfully Registered", JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "dog name", JOptionPane.INFORMATION_MESSAGE);
+        this.cleanFields();
     }
 
     @SuppressWarnings("unchecked")
@@ -94,27 +94,27 @@ public class refillData extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         titleLbl = new javax.swing.JLabel();
-        txtNCliente = new javax.swing.JTextField();
+        txtNClient = new javax.swing.JTextField();
         dateLbl = new javax.swing.JLabel();
-        txtNombrePerro = new javax.swing.JTextField();
+        txtDogName = new javax.swing.JTextField();
         authorLbl = new javax.swing.JLabel();
-        txtRaza = new javax.swing.JTextField();
+        txtRace = new javax.swing.JTextField();
         catLbl = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
         edLbl = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         langLbl = new javax.swing.JLabel();
         pagsLbl = new javax.swing.JLabel();
-        txtNombreDueño = new javax.swing.JTextField();
+        txtOwnersName = new javax.swing.JTextField();
         descLbl = new javax.swing.JLabel();
-        txtCelDueño = new javax.swing.JTextField();
+        txtCellOwner = new javax.swing.JTextField();
         stockLbl = new javax.swing.JLabel();
-        btnSubir = new javax.swing.JButton();
+        btnIncrese = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtObervaciones = new javax.swing.JTextArea();
-        cbxAlergico = new javax.swing.JComboBox<>();
-        cbxAtencionEspecial = new javax.swing.JComboBox<>();
-        btnSubir1 = new javax.swing.JButton();
+        txtObservations = new javax.swing.JTextArea();
+        cbxAllergic = new javax.swing.JComboBox<>();
+        cbxSpecialAttention = new javax.swing.JComboBox<>();
+        btnClean = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -145,46 +145,46 @@ public class refillData extends javax.swing.JPanel {
 
         pagsLbl.setText("Owner's name");
 
-        txtNombreDueño.setToolTipText("");
+        txtOwnersName.setToolTipText("");
 
         descLbl.setText("Cel. Owner");
 
-        txtCelDueño.setToolTipText("");
+        txtCellOwner.setToolTipText("");
 
         stockLbl.setText("Observations");
         stockLbl.setToolTipText("");
 
-        btnSubir.setBackground(new java.awt.Color(255, 51, 51));
-        btnSubir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSubir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSubir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/enviar.png"))); // NOI18N
-        btnSubir.setText("Increase");
-        btnSubir.setBorderPainted(false);
-        btnSubir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSubir.addActionListener(new java.awt.event.ActionListener() {
+        btnIncrese.setBackground(new java.awt.Color(255, 51, 51));
+        btnIncrese.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnIncrese.setForeground(new java.awt.Color(255, 255, 255));
+        btnIncrese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/enviar.png"))); // NOI18N
+        btnIncrese.setText("Increase");
+        btnIncrese.setBorderPainted(false);
+        btnIncrese.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIncrese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubirActionPerformed(evt);
+                btnIncreseActionPerformed(evt);
             }
         });
 
-        txtObervaciones.setColumns(20);
-        txtObervaciones.setRows(5);
-        jScrollPane2.setViewportView(txtObervaciones);
+        txtObservations.setColumns(20);
+        txtObservations.setRows(5);
+        jScrollPane2.setViewportView(txtObservations);
 
-        cbxAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "YEAH", "NO" }));
+        cbxAllergic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "YEAH", "NO" }));
 
-        cbxAtencionEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "YEAH", "NO" }));
+        cbxSpecialAttention.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "YEAH", "NO" }));
 
-        btnSubir1.setBackground(new java.awt.Color(255, 51, 51));
-        btnSubir1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSubir1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSubir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/herramienta-de-borrador.png"))); // NOI18N
-        btnSubir1.setText("Clean");
-        btnSubir1.setBorderPainted(false);
-        btnSubir1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSubir1.addActionListener(new java.awt.event.ActionListener() {
+        btnClean.setBackground(new java.awt.Color(255, 51, 51));
+        btnClean.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnClean.setForeground(new java.awt.Color(255, 255, 255));
+        btnClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/herramienta-de-borrador.png"))); // NOI18N
+        btnClean.setText("Clean");
+        btnClean.setBorderPainted(false);
+        btnClean.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubir1ActionPerformed(evt);
+                btnCleanActionPerformed(evt);
             }
         });
 
@@ -200,7 +200,7 @@ public class refillData extends javax.swing.JPanel {
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtColor)
-                                    .addComponent(txtRaza)
+                                    .addComponent(txtRace)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(authorLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(233, 233, 233))
@@ -210,17 +210,17 @@ public class refillData extends javax.swing.JPanel {
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(234, 234, 234))
-                                    .addComponent(txtNCliente)
+                                    .addComponent(txtNClient)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(161, 161, 161))
-                                    .addComponent(txtNombrePerro)
+                                    .addComponent(txtDogName)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(edLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(227, 227, 227)))
                                 .addGap(68, 68, 68))
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(cbxAlergico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxAllergic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(288, 288, 288)))
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
@@ -240,15 +240,15 @@ public class refillData extends javax.swing.JPanel {
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCelDueño, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreDueño, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCellOwner, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOwnersName, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bgLayout.createSequentialGroup()
-                                        .addComponent(btnSubir, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnIncrese, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSubir1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(130, 130, 130))
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(cbxAtencionEspecial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxSpecialAttention, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(344, 344, 344))))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -266,37 +266,37 @@ public class refillData extends javax.swing.JPanel {
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addComponent(langLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbxAtencionEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxSpecialAttention, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)
                                 .addComponent(pagsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtOwnersName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(descLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCelDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCellOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(stockLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnSubir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSubir1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnIncrese, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(22, 22, 22))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombrePerro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDogName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(authorLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRaza, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
                         .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -304,7 +304,7 @@ public class refillData extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(edLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxAlergico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxAllergic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))))
         );
 
@@ -320,22 +320,22 @@ public class refillData extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirActionPerformed
+    private void btnIncreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncreseActionPerformed
         this.registerData();
-    }//GEN-LAST:event_btnSubirActionPerformed
+    }//GEN-LAST:event_btnIncreseActionPerformed
 
-    private void btnSubir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubir1ActionPerformed
-        limpiarCampos();
-    }//GEN-LAST:event_btnSubir1ActionPerformed
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+        this.cleanFields();
+    }//GEN-LAST:event_btnCleanActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel authorLbl;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton btnSubir;
-    private javax.swing.JButton btnSubir1;
+    private javax.swing.JButton btnClean;
+    private javax.swing.JButton btnIncrese;
     private javax.swing.JLabel catLbl;
-    private javax.swing.JComboBox<String> cbxAlergico;
-    private javax.swing.JComboBox<String> cbxAtencionEspecial;
+    private javax.swing.JComboBox<String> cbxAllergic;
+    private javax.swing.JComboBox<String> cbxSpecialAttention;
     private javax.swing.JLabel dateLbl;
     private javax.swing.JLabel descLbl;
     private javax.swing.JLabel edLbl;
@@ -348,12 +348,12 @@ public class refillData extends javax.swing.JPanel {
     private javax.swing.JLabel stockLbl;
     private javax.swing.JLabel title;
     private javax.swing.JLabel titleLbl;
-    private javax.swing.JTextField txtCelDueño;
+    private javax.swing.JTextField txtCellOwner;
     private javax.swing.JTextField txtColor;
-    private javax.swing.JTextField txtNCliente;
-    private javax.swing.JTextField txtNombreDueño;
-    private javax.swing.JTextField txtNombrePerro;
-    private javax.swing.JTextArea txtObervaciones;
-    private javax.swing.JTextField txtRaza;
+    private javax.swing.JTextField txtDogName;
+    private javax.swing.JTextField txtNClient;
+    private javax.swing.JTextArea txtObservations;
+    private javax.swing.JTextField txtOwnersName;
+    private javax.swing.JTextField txtRace;
     // End of variables declaration//GEN-END:variables
 }

@@ -66,7 +66,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtColor" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtRaza" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRace" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="authorLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="233" pref="233" max="-2" attributes="0"/>
@@ -79,12 +79,12 @@
                                           <Component id="titleLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="234" pref="234" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtNCliente" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNClient" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="dateLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="161" pref="161" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtNombrePerro" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtDogName" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="edLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="227" pref="227" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
                                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="cbxAlergico" max="32767" attributes="0"/>
+                                  <Component id="cbxAllergic" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -119,18 +119,18 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCelDueño" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtNombreDueño" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCellOwner" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtOwnersName" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnSubir" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="btnIncrese" min="-2" pref="147" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnSubir1" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="btnClean" min="-2" pref="147" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="cbxAtencionEspecial" max="32767" attributes="0"/>
+                                  <Component id="cbxSpecialAttention" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -155,23 +155,23 @@
                               <Group type="102" attributes="0">
                                   <Component id="langLbl" max="32767" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cbxAtencionEspecial" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxSpecialAttention" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                   <Component id="pagsLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNombreDueño" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtOwnersName" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="descLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCelDueño" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtCellOwner" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="stockLbl" max="32767" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnSubir" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="btnSubir1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="btnIncrese" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="btnClean" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jSeparator1" max="32767" attributes="0"/>
@@ -181,15 +181,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="titleLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNCliente" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtNClient" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="dateLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNombrePerro" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtDogName" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="authorLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="txtRaza" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtRace" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="catLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -197,7 +197,7 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="edLbl" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cbxAlergico" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxAllergic" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -219,21 +219,21 @@
             <Property name="text" type="java.lang.String" value="Client No."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNCliente">
+        <Component class="javax.swing.JTextField" name="txtNClient">
         </Component>
         <Component class="javax.swing.JLabel" name="dateLbl">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombrePerro">
+        <Component class="javax.swing.JTextField" name="txtDogName">
         </Component>
         <Component class="javax.swing.JLabel" name="authorLbl">
           <Properties>
             <Property name="text" type="java.lang.String" value="Race"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtRaza">
+        <Component class="javax.swing.JTextField" name="txtRace">
         </Component>
         <Component class="javax.swing.JLabel" name="catLbl">
           <Properties>
@@ -268,7 +268,7 @@
             <Property name="text" type="java.lang.String" value="Owner&apos;s name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreDue&#xf1;o">
+        <Component class="javax.swing.JTextField" name="txtOwnersName">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -278,7 +278,7 @@
             <Property name="text" type="java.lang.String" value="Cel. Owner"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCelDue&#xf1;o">
+        <Component class="javax.swing.JTextField" name="txtCellOwner">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -289,7 +289,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSubir">
+        <Component class="javax.swing.JButton" name="btnIncrese">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
@@ -310,7 +310,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIncreseActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -320,7 +320,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txtObervaciones">
+            <Component class="javax.swing.JTextArea" name="txtObservations">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -328,7 +328,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="cbxAlergico">
+        <Component class="javax.swing.JComboBox" name="cbxAllergic">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -342,7 +342,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxAtencionEspecial">
+        <Component class="javax.swing.JComboBox" name="cbxSpecialAttention">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -356,7 +356,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSubir1">
+        <Component class="javax.swing.JButton" name="btnClean">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
@@ -377,7 +377,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubir1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCleanActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
