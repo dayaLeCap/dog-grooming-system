@@ -13,39 +13,38 @@ public class PetImplemented implements DaoPet {
 
     //about writing the method
     @Override
-    public void registerPet(Pet pet, Owner owner) {
-        //sql query to insert the pet
-        final String SQL_PET = "INSERT INTO pet"
-                + " (name,race,color,allergic,special_attention,observations,idOwner) "
-                + "VALUES (?,?,?,?,?,?,?) ";
+    public void registerPet(Owner owner, Pet pet) {
 
         //sql query to insert the owner
-        final String SQL_OWNER = "INERT INTO owner "
-                + "(idOwner,name,cellOwner) "
-                + "VALUES ((SELECT pet id_owner ORDER BY id_owner DESC LIMIT 1),?,?)";
+        String SQL_OWNER = "INSERT INTO owner "
+                + "(name,cellOwner) "
+                + "VALUES (?,?)";
+
+        //sql query to insert the pet
+        String SQL_PET = "INSERT INTO pet"
+                + " (name,race,color,allergic,special_attention,observations,id_owner) "
+                + "VALUES (?,?,?,?,?,?,(SELECT idOwner FROM owner ORDER BY idOwner DESC LIMIT 1)) ";
 
         try {
 
             //we connect to the database
             Connection connect = conex.Connect();
-            PreparedStatement psPet = connect.prepareStatement(SQL_PET);
+
             PreparedStatement psOwner = connect.prepareStatement(SQL_OWNER);
+            PreparedStatement psPet = connect.prepareStatement(SQL_PET);
 
             /*We set the fields of the SQL queries for both pet and owner*/
+            psOwner.setString(1, owner.getName());
+            psOwner.setInt(2, owner.getCellOwner());
+            psOwner.executeUpdate();
+
             psPet.setString(1, pet.getName());
             psPet.setString(2, pet.getRace());
             psPet.setString(3, pet.getColor());
             psPet.setString(4, pet.getAllergic());
             psPet.setString(5, pet.getSpecial_attention());
             psPet.setString(6, pet.getObservations());
-            psPet.setInt(7, owner.getId_Owner());
-
-            psOwner.setString(1, owner.getName());
-            psOwner.setInt(2, owner.getCellOwner());
-
-            //we execute the queries
             psPet.executeUpdate();
-            psOwner.executeUpdate();
 
             conex.closeConnection();
             System.out.println("pet and owner inserted ¡congratulations! ");
@@ -55,5 +54,4 @@ public class PetImplemented implements DaoPet {
         }
 
     }
-
 }
