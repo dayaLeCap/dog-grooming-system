@@ -313,7 +313,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMajorActionPerformed
 
     private void btnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataActionPerformed
-        ShowJPanel(new rellenarDatos());
+        ShowJPanel(new refillData());
     }//GEN-LAST:event_btnLoadDataActionPerformed
 
     private void btnSeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeDataActionPerformed

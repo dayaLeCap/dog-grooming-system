@@ -2,9 +2,9 @@ package com.mycompany.canine.grooming.system.IGU;
 
 import java.awt.Color;
 
-public class rellenarDatos extends javax.swing.JPanel {
+public class refillData extends javax.swing.JPanel {
 
-    public rellenarDatos() {
+    public refillData() {
         initComponents();
         estilosIniciales();
     }
@@ -261,7 +261,7 @@ public class rellenarDatos extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 820, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
