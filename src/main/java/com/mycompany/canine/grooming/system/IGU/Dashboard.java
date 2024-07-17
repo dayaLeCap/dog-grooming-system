@@ -43,7 +43,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     private void InitContent() {
-        ShowJPanel(new Principal());
+        ShowJPanel(new Bienvenida());
     }
 
     public static void ShowJPanel(JPanel p) {
