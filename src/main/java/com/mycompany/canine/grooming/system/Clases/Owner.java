@@ -3,7 +3,7 @@ package com.mycompany.canine.grooming.system.Clases;
 public class Owner {
 
     //atributes
-    private int id_Owner;
+    private int idOwner;
     private String name;
     private String cellOwner;
 
@@ -12,17 +12,17 @@ public class Owner {
     }
 
     public Owner(int id_Owner, String name, String cellOwner) {
-        this.id_Owner = id_Owner;
+        this.idOwner = id_Owner;
         this.name = name;
         this.cellOwner = cellOwner;
     }
 
     public int getId_Owner() {
-        return id_Owner;
+        return idOwner;
     }
 
     public void setId_Owner(int Id_Owner) {
-        this.id_Owner = Id_Owner;
+        this.idOwner = Id_Owner;
     }
 
     public String getName() {
