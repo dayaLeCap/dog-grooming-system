@@ -68,8 +68,6 @@ public class Dashboard extends javax.swing.JFrame {
         btnLoadData = new javax.swing.JButton();
         btnSeeData = new javax.swing.JButton();
         btnSingOff = new javax.swing.JButton();
-        btn_books = new javax.swing.JButton();
-        btn_reports = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         navText = new javax.swing.JLabel();
         dateText = new javax.swing.JLabel();
@@ -157,40 +155,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btn_books.setBackground(new java.awt.Color(255, 51, 51));
-        btn_books.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_books.setForeground(new java.awt.Color(255, 255, 255));
-        btn_books.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/book-open-page-variant.png"))); // NOI18N
-        btn_books.setText("Libros");
-        btn_books.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 13, 1, 1, new java.awt.Color(0, 0, 0)));
-        btn_books.setBorderPainted(false);
-        btn_books.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_books.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_books.setIconTextGap(13);
-        btn_books.setInheritsPopupMenu(true);
-        btn_books.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_booksActionPerformed(evt);
-            }
-        });
-
-        btn_reports.setBackground(new java.awt.Color(255, 51, 51));
-        btn_reports.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_reports.setForeground(new java.awt.Color(255, 255, 255));
-        btn_reports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/file-chart.png"))); // NOI18N
-        btn_reports.setText("Reportes");
-        btn_reports.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 13, 1, 1, new java.awt.Color(0, 0, 0)));
-        btn_reports.setBorderPainted(false);
-        btn_reports.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_reports.setIconTextGap(13);
-        btn_reports.setInheritsPopupMenu(true);
-        btn_reports.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_reportsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
@@ -205,8 +169,6 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(btnSingOff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMajor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSeeData, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addComponent(btn_books, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,17 +184,13 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(btnSingOff, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(btnSeeData, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(btn_reports, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menuLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(btnLoadData, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98)
-                        .addComponent(btn_books, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnSeeData, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(menuLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(btnLoadData, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(100, 100, 100))
         );
 
         header.setBackground(new java.awt.Color(255, 153, 153));
@@ -324,14 +282,6 @@ public class Dashboard extends javax.swing.JFrame {
         //ShowJPanel(new Users());
     }//GEN-LAST:event_btnSingOffActionPerformed
 
-    private void btn_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_booksActionPerformed
-        //ShowJPanel(new Books());
-    }//GEN-LAST:event_btn_booksActionPerformed
-
-    private void btn_reportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportsActionPerformed
-        //  ShowJPanel(new Reports());
-    }//GEN-LAST:event_btn_reportsActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -354,8 +304,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnMajor;
     private javax.swing.JButton btnSeeData;
     private javax.swing.JButton btnSingOff;
-    private javax.swing.JButton btn_books;
-    private javax.swing.JButton btn_reports;
     private static javax.swing.JPanel content;
     private javax.swing.JLabel dateText;
     private javax.swing.JPanel header;
