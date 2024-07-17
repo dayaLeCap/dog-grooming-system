@@ -17,4 +17,28 @@ public class Owner {
         this.cellDuenio = cellDuenio;
     }
 
+    public int getId_duenio() {
+        return id_duenio;
+    }
+
+    public void setId_duenio(int id_duenio) {
+        this.id_duenio = id_duenio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCellDuenio() {
+        return cellDuenio;
+    }
+
+    public void setCellDuenio(String cellDuenio) {
+        this.cellDuenio = cellDuenio;
+    }
+
 }
