@@ -1,6 +1,10 @@
 package com.mycompany.canine.grooming.system.IGU;
 
+import com.mycompany.canine.grooming.system.Clases.Owner;
+import com.mycompany.canine.grooming.system.Clases.Pet;
+import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class refillData extends javax.swing.JPanel {
 
@@ -31,6 +35,53 @@ public class refillData extends javax.swing.JPanel {
         //para los combo box
         cbxAlergico.setSelectedIndex(0);
         cbxAtencionEspecial.setSelectedIndex(0);
+    }
+
+    private void registerData() {
+        //int customer_number;
+
+        PetImplemented petImplemented = new PetImplemented();
+
+        Owner owner = new Owner();
+        //owner attributes
+        //int idOwner;
+        String nameOwner;
+        int cellOwner;
+
+        //Owner
+        nameOwner = txtNombreDueño.getText();
+        cellOwner = Integer.parseInt(txtCelDueño.getText());
+        owner.setName(nameOwner);
+        owner.setCellOwner(cellOwner);
+
+        Pet pet = new Pet();
+        //pet attributes
+        String name;
+        String race;
+        String color;
+        String allergic;
+        String special_attention;
+        String observations;
+        //Let's obtain the data through the fields that are in the form
+        name = txtNombrePerro.getText();
+        race = txtRaza.getText();
+        color = txtColor.getText();
+        allergic = cbxAlergico.getSelectedItem().toString();
+        special_attention = cbxAtencionEspecial.getSelectedItem().toString();
+        observations = txtObervaciones.getText();
+
+        //we set the data to the objects
+        pet.setName(name);
+        pet.setRace(race);
+        pet.setColor(color);
+        pet.setAllergic(allergic);
+        pet.setSpecial_attention(special_attention);
+        pet.setObservations(observations);
+        pet.setOwner(owner);
+
+        //we invoke the register-Pet method
+        petImplemented.registerPet(owner, pet);
+        JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "Pet Successfully Registered", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -60,7 +111,7 @@ public class refillData extends javax.swing.JPanel {
         stockLbl = new javax.swing.JLabel();
         btnSubir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtObervaciones = new javax.swing.JTextArea();
         cbxAlergico = new javax.swing.JComboBox<>();
         cbxAtencionEspecial = new javax.swing.JComboBox<>();
         btnSubir1 = new javax.swing.JButton();
@@ -116,9 +167,9 @@ public class refillData extends javax.swing.JPanel {
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtObervaciones.setColumns(20);
+        txtObervaciones.setRows(5);
+        jScrollPane2.setViewportView(txtObervaciones);
 
         cbxAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "YEAH", "NO" }));
 
@@ -261,7 +312,7 @@ public class refillData extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 820, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +321,7 @@ public class refillData extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirActionPerformed
-
+        this.registerData();
     }//GEN-LAST:event_btnSubirActionPerformed
 
     private void btnSubir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubir1ActionPerformed
@@ -292,7 +343,6 @@ public class refillData extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel langLbl;
     private javax.swing.JLabel pagsLbl;
     private javax.swing.JLabel stockLbl;
@@ -303,6 +353,7 @@ public class refillData extends javax.swing.JPanel {
     private javax.swing.JTextField txtNCliente;
     private javax.swing.JTextField txtNombreDueño;
     private javax.swing.JTextField txtNombrePerro;
+    private javax.swing.JTextArea txtObervaciones;
     private javax.swing.JTextField txtRaza;
     // End of variables declaration//GEN-END:variables
 }
