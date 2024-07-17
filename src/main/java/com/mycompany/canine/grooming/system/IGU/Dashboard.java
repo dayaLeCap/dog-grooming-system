@@ -10,6 +10,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -43,7 +44,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     private void InitContent() {
-        ShowJPanel(new Bienvenida());
+        ShowJPanel(new welcome());
     }
 
     public static void ShowJPanel(JPanel p) {
@@ -279,7 +280,12 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeeDataActionPerformed
 
     private void btnSingOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingOffActionPerformed
-        //ShowJPanel(new Users());
+
+        int confirm;
+        confirm = JOptionPane.showConfirmDialog(rootPane, "ARE YOU SURE TO LEAVE?", "SIGN OFF", JOptionPane.WARNING_MESSAGE);
+        if (confirm == 0) {
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSingOffActionPerformed
 
     /**
