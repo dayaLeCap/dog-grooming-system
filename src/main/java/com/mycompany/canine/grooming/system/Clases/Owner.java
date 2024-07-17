@@ -5,13 +5,13 @@ public class Owner {
     //atributes
     private int idOwner;
     private String name;
-    private String cellOwner;
+    private int cellOwner;
 
     //builder
     public Owner() {
     }
 
-    public Owner(int id_Owner, String name, String cellOwner) {
+    public Owner(int id_Owner, String name, int cellOwner) {
         this.idOwner = id_Owner;
         this.name = name;
         this.cellOwner = cellOwner;
@@ -33,11 +33,11 @@ public class Owner {
         this.name = name;
     }
 
-    public String getCellOwner() {
+    public int getCellOwner() {
         return cellOwner;
     }
 
-    public void setCellOwner(String cellOwner) {
+    public void setCellOwner(int cellOwner) {
         this.cellOwner = cellOwner;
     }
 
