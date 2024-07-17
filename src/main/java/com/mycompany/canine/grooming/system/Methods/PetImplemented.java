@@ -13,7 +13,7 @@ public class PetImplemented implements DaoPet {
 
     //about writing the method
     @Override
-    public void registrarMascota(Pet pet, Owner owner) {
+    public void registerPet(Pet pet, Owner owner) {
         //sql query to insert the pet
         final String SQL_PET = "INSERT INTO pet"
                 + " (name,race,color,allergic,special_attention,observations,idOwner) "

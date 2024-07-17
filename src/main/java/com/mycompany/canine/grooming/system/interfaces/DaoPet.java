@@ -5,5 +5,5 @@ import com.mycompany.canine.grooming.system.Clases.Pet;
 
 public interface DaoPet {
 
-    public void registrarMascota(Pet pet, Owner owner);
+    public void registerPet(Pet pet, Owner owner);
 }
