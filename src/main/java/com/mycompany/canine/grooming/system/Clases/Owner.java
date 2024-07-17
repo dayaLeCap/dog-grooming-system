@@ -3,42 +3,42 @@ package com.mycompany.canine.grooming.system.Clases;
 public class Owner {
 
     //atributes
-    private int id_duenio;
-    private String nombre;
-    private String cellDuenio;
+    private int id_Owner;
+    private String name;
+    private String cellOwner;
 
     //builder
     public Owner() {
     }
 
-    public Owner(int id_duenio, String nombre, String cellDuenio) {
-        this.id_duenio = id_duenio;
-        this.nombre = nombre;
-        this.cellDuenio = cellDuenio;
+    public Owner(int id_Owner, String name, String cellOwner) {
+        this.id_Owner = id_Owner;
+        this.name = name;
+        this.cellOwner = cellOwner;
     }
 
-    public int getId_duenio() {
-        return id_duenio;
+    public int getId_Owner() {
+        return id_Owner;
     }
 
-    public void setId_duenio(int id_duenio) {
-        this.id_duenio = id_duenio;
+    public void setId_Owner(int Id_Owner) {
+        this.id_Owner = Id_Owner;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCellDuenio() {
-        return cellDuenio;
+    public String getCellOwner() {
+        return cellOwner;
     }
 
-    public void setCellDuenio(String cellDuenio) {
-        this.cellDuenio = cellDuenio;
+    public void setCellOwner(String cellOwner) {
+        this.cellOwner = cellOwner;
     }
 
 }
