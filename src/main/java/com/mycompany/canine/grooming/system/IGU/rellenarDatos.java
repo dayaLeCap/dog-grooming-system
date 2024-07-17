@@ -18,7 +18,6 @@ public class rellenarDatos extends javax.swing.JPanel {
         txtColor.putClientProperty("JTextField.placeholderText", "Enter Dog Color");
         txtNombreDueño.putClientProperty("JTextField.placeholderText", "Enter Dog Owner");
         txtCelDueño.putClientProperty("JTextField.placeholderText", "Enter the Owner's Cell Phone");
-
     }
 
     private void limpiarCampos() {
