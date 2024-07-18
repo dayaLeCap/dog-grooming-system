@@ -32,6 +32,7 @@ public class refillData extends javax.swing.JPanel {
         txtDogName.setText(m);
         txtRace.setText(m);
         txtOwnersName.setText(m);
+        txtObservations.setText(m);
         //para los combo box
         cbxAllergic.setSelectedIndex(0);
         cbxSpecialAttention.setSelectedIndex(0);
