@@ -6,4 +6,6 @@ import com.mycompany.canine.grooming.system.Clases.Pet;
 public interface DaoPet {
 
     public void registerPet(Owner owner, Pet pet);
+
+    public void deletePet(Owner owner, Pet pet);
 }
