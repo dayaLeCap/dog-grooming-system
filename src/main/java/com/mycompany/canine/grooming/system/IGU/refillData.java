@@ -2,33 +2,32 @@ package com.mycompany.canine.grooming.system.IGU;
 
 import com.mycompany.canine.grooming.system.Clases.Owner;
 import com.mycompany.canine.grooming.system.Clases.Pet;
+import com.mycompany.canine.grooming.system.Clases.Validation;
 import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class refillData extends javax.swing.JPanel {
-
+    
     public refillData() {
         initComponents();
         estilosIniciales();
     }
-
+    
     private void estilosIniciales() {
         title.putClientProperty("FlatLaf.styleClass", "h1");
         title.setForeground(Color.black);
-        txtNClient.putClientProperty("JTextField.placeholderText", "Enter the Customer Number");
         txtDogName.putClientProperty("JTextField.placeholderText", "Enter the Dog's Name");
         txtRace.putClientProperty("JTextField.placeholderText", "Enter Dog Breed");
         txtColor.putClientProperty("JTextField.placeholderText", "Enter Dog Color");
         txtOwnersName.putClientProperty("JTextField.placeholderText", "Enter Dog Owner");
         txtCellOwner.putClientProperty("JTextField.placeholderText", "Enter the Owner's Cell Phone");
     }
-
+    
     private void cleanFields() {
         String m = "";
         txtCellOwner.setText(m);
         txtColor.setText(m);
-        txtNClient.setText(m);
         txtDogName.setText(m);
         txtRace.setText(m);
         txtOwnersName.setText(m);
@@ -36,56 +35,64 @@ public class refillData extends javax.swing.JPanel {
         //para los combo box
         cbxAllergic.setSelectedIndex(0);
         cbxSpecialAttention.setSelectedIndex(0);
+        
     }
-
+    
     private void registerData() {
-        //int customer_number;
+        String field = Validation.fieldValidations(txtDogName, txtRace, txtColor, cbxAllergic, cbxSpecialAttention, txtOwnersName, txtCellOwner, txtObservations);
+        
+        if (field.equals("")) {
+            //int customer_number;
 
-        PetImplemented petImplemented = new PetImplemented();
+            PetImplemented petImplemented = new PetImplemented();
+            
+            Owner owner = new Owner();
+            //owner attributes
+            //int idOwner;
+            String nameOwner;
+            int cellOwner;
 
-        Owner owner = new Owner();
-        //owner attributes
-        //int idOwner;
-        String nameOwner;
-        int cellOwner;
+            //Owner
+            nameOwner = txtOwnersName.getText();
+            cellOwner = Integer.parseInt(txtCellOwner.getText());
+            owner.setName(nameOwner);
+            owner.setCellOwner(cellOwner);
+            
+            Pet pet = new Pet();
+            //pet attributes
+            String name;
+            String race;
+            String color;
+            String allergic;
+            String special_attention;
+            String observations;
+            //Let's obtain the data through the fields that are in the form
+            name = txtDogName.getText();
+            race = txtRace.getText();
+            color = txtColor.getText();
+            allergic = cbxAllergic.getSelectedItem().toString();
+            special_attention = cbxSpecialAttention.getSelectedItem().toString();
+            observations = txtObservations.getText();
 
-        //Owner
-        nameOwner = txtOwnersName.getText();
-        cellOwner = Integer.parseInt(txtCellOwner.getText());
-        owner.setName(nameOwner);
-        owner.setCellOwner(cellOwner);
+            //we set the data to the objects
+            pet.setName(name);
+            pet.setRace(race);
+            pet.setColor(color);
+            pet.setAllergic(allergic);
+            pet.setSpecial_attention(special_attention);
+            pet.setObservations(observations);
+            pet.setOwner(owner);
 
-        Pet pet = new Pet();
-        //pet attributes
-        String name;
-        String race;
-        String color;
-        String allergic;
-        String special_attention;
-        String observations;
-        //Let's obtain the data through the fields that are in the form
-        name = txtDogName.getText();
-        race = txtRace.getText();
-        color = txtColor.getText();
-        allergic = cbxAllergic.getSelectedItem().toString();
-        special_attention = cbxSpecialAttention.getSelectedItem().toString();
-        observations = txtObservations.getText();
-
-        //we set the data to the objects
-        pet.setName(name);
-        pet.setRace(race);
-        pet.setColor(color);
-        pet.setAllergic(allergic);
-        pet.setSpecial_attention(special_attention);
-        pet.setObservations(observations);
-        pet.setOwner(owner);
-
-        //we invoke the register-Pet method
-        petImplemented.registerPet(owner, pet);
-        JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "dog name", JOptionPane.INFORMATION_MESSAGE);
-        this.cleanFields();
+            //we invoke the register-Pet method
+            petImplemented.registerPet(owner, pet);
+            JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "dog name", JOptionPane.INFORMATION_MESSAGE);
+            this.cleanFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "VERIFY THE DATA IN THE FIELD: " + field, field, HEIGHT);
+        }
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -94,8 +101,6 @@ public class refillData extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         bg = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        titleLbl = new javax.swing.JLabel();
-        txtNClient = new javax.swing.JTextField();
         dateLbl = new javax.swing.JLabel();
         txtDogName = new javax.swing.JTextField();
         authorLbl = new javax.swing.JLabel();
@@ -127,8 +132,6 @@ public class refillData extends javax.swing.JPanel {
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/huella.png"))); // NOI18N
         title.setText("Data register");
-
-        titleLbl.setText("Client No.");
 
         dateLbl.setText("Name");
 
@@ -209,10 +212,6 @@ public class refillData extends javax.swing.JPanel {
                                         .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(213, 213, 213))
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(234, 234, 234))
-                                    .addComponent(txtNClient)
-                                    .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(161, 161, 161))
                                     .addComponent(txtDogName)
@@ -221,7 +220,7 @@ public class refillData extends javax.swing.JPanel {
                                         .addGap(227, 227, 227)))
                                 .addGap(68, 68, 68))
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(cbxAllergic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxAllergic, 0, 0, Short.MAX_VALUE)
                                 .addGap(288, 288, 288)))
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
@@ -287,10 +286,7 @@ public class refillData extends javax.swing.JPanel {
                             .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(22, 22, 22))
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDogName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,7 +294,7 @@ public class refillData extends javax.swing.JPanel {
                         .addComponent(authorLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +302,7 @@ public class refillData extends javax.swing.JPanel {
                         .addComponent(edLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxAllergic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addGap(89, 89, 89))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -348,11 +344,9 @@ public class refillData extends javax.swing.JPanel {
     private javax.swing.JLabel pagsLbl;
     private javax.swing.JLabel stockLbl;
     private javax.swing.JLabel title;
-    private javax.swing.JLabel titleLbl;
     private javax.swing.JTextField txtCellOwner;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDogName;
-    private javax.swing.JTextField txtNClient;
     private javax.swing.JTextArea txtObservations;
     private javax.swing.JTextField txtOwnersName;
     private javax.swing.JTextField txtRace;

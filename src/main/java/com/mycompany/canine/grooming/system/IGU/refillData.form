@@ -76,11 +76,6 @@
                                           <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="titleLbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="234" pref="234" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtNClient" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="dateLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="161" pref="161" max="-2" attributes="0"/>
                                       </Group>
@@ -93,7 +88,7 @@
                                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="cbxAllergic" max="32767" attributes="0"/>
+                                  <Component id="cbxAllergic" pref="0" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -179,26 +174,23 @@
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="titleLbl" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNClient" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="dateLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="txtDogName" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="authorLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="txtRace" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="catLbl" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="txtColor" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="edLbl" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="cbxAllergic" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -213,13 +205,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Data register"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="titleLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Client No."/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNClient">
         </Component>
         <Component class="javax.swing.JLabel" name="dateLbl">
           <Properties>
