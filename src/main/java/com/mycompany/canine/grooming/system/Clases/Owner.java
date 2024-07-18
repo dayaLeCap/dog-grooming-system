@@ -11,6 +11,15 @@ public class Owner {
     public Owner() {
     }
 
+    public Owner(String name, int cellOwner) {
+        this.name = name;
+        this.cellOwner = cellOwner;
+    }
+
+    public Owner(int idOwner) {
+        this.idOwner = idOwner;
+    }
+
     public Owner(int id_Owner, String name, int cellOwner) {
         this.idOwner = id_Owner;
         this.name = name;
