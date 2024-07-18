@@ -16,7 +16,7 @@ import javax.swing.UIManager;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class Dashboard extends javax.swing.JFrame {
-
+    
     public Dashboard() {
         initComponents();
         InitStyles();
@@ -24,39 +24,39 @@ public class Dashboard extends javax.swing.JFrame {
         InitContent();
         FlatMaterialLighterIJTheme.setup();
     }
-
+    
     private void InitStyles() {
         mensaje.putClientProperty("FlatLaf.style", "font: 14 $light.font");
         mensaje.setForeground(Color.black);
         navText.putClientProperty("FlatLaf.style", "font: bold $h3.regular.font");
         navText.setForeground(Color.white);
-        dateText.putClientProperty("FlatLaf.style", "font: 24 $light.font");
+        dateText.putClientProperty("FlatLaf.style", "font: 50 $light.font");
         dateText.setForeground(Color.white);
         appName.putClientProperty("FlatLaf.style", "font: bold $h1.regular.font");
         appName.setForeground(Color.white);
         this.setTitle("CANINE GROOMING SYSTEM");
     }
-
+    
     private void SetDate() {
         LocalDate now = LocalDate.now();
         Locale spanishLocale = new Locale("es", "ES");
         dateText.setText(now.format(DateTimeFormatter.ofPattern("'Today is' EEEE dd 'of' MMMM 'of' yyyy", spanishLocale)));
     }
-
+    
     private void InitContent() {
         ShowJPanel(new welcome());
     }
-
+    
     public static void ShowJPanel(JPanel p) {
         p.setSize(750, 430);
         p.setLocation(0, 0);
-
+        
         content.removeAll();
         content.add(p, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -186,19 +186,20 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(btnSeeData, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(menuLayout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(btnLoadData, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(menuLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(btnLoadData, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
 
         header.setBackground(new java.awt.Color(255, 153, 153));
         header.setPreferredSize(new java.awt.Dimension(744, 150));
 
+        navText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         navText.setText("Administration/Control/Dog Grooming");
 
+        dateText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         dateText.setText("Today is {dayname} {day} of {month} of {year}");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
@@ -209,8 +210,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(navText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dateText, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
-                .addContainerGap(260, Short.MAX_VALUE))
+                    .addComponent(dateText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,9 +269,6 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMajorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMajorActionPerformed
-    }//GEN-LAST:event_btnMajorActionPerformed
-
     private void btnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataActionPerformed
         ShowJPanel(new refillData());
     }//GEN-LAST:event_btnLoadDataActionPerformed
@@ -280,13 +278,17 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeeDataActionPerformed
 
     private void btnSingOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingOffActionPerformed
-
+        
         int confirm;
         confirm = JOptionPane.showConfirmDialog(rootPane, "ARE YOU SURE TO LEAVE?", "SIGN OFF", JOptionPane.WARNING_MESSAGE);
         if (confirm == 0) {
             this.dispose();
         }
     }//GEN-LAST:event_btnSingOffActionPerformed
+
+    private void btnMajorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMajorActionPerformed
+        ShowJPanel(new welcome());
+    }//GEN-LAST:event_btnMajorActionPerformed
 
     /**
      * @param args the command line arguments

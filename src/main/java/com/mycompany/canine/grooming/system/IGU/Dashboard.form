@@ -291,9 +291,9 @@
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="navText" max="32767" attributes="0"/>
-                          <Component id="dateText" pref="434" max="32767" attributes="0"/>
+                          <Component id="dateText" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="260" max="32767" attributes="0"/>
+                      <EmptySpace pref="212" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -312,11 +312,17 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="navText">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Administration/Control/Dog Grooming"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="dateText">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Today is {dayname} {day} of {month} of {year}"/>
               </Properties>
             </Component>
