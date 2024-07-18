@@ -2,7 +2,7 @@ package com.mycompany.canine.grooming.system.IGU;
 
 import com.mycompany.canine.grooming.system.Clases.Owner;
 import com.mycompany.canine.grooming.system.Clases.Pet;
-import com.mycompany.canine.grooming.system.Clases.Validation;
+import com.mycompany.canine.grooming.system.Methods.Validation;
 import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import java.awt.Color;
 import javax.swing.JOptionPane;

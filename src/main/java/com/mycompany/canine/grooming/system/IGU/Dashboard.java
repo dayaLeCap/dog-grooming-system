@@ -16,7 +16,7 @@ import javax.swing.UIManager;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class Dashboard extends javax.swing.JFrame {
-    
+
     public Dashboard() {
         initComponents();
         InitStyles();
@@ -24,7 +24,7 @@ public class Dashboard extends javax.swing.JFrame {
         InitContent();
         FlatMaterialLighterIJTheme.setup();
     }
-    
+
     private void InitStyles() {
         mensaje.putClientProperty("FlatLaf.style", "font: 14 $light.font");
         mensaje.setForeground(Color.black);
@@ -36,27 +36,27 @@ public class Dashboard extends javax.swing.JFrame {
         appName.setForeground(Color.white);
         this.setTitle("CANINE GROOMING SYSTEM");
     }
-    
+
     private void SetDate() {
         LocalDate now = LocalDate.now();
         Locale spanishLocale = new Locale("es", "ES");
         dateText.setText(now.format(DateTimeFormatter.ofPattern("'Today is' EEEE dd 'of' MMMM 'of' yyyy", spanishLocale)));
     }
-    
+
     private void InitContent() {
         ShowJPanel(new welcome());
     }
-    
+
     public static void ShowJPanel(JPanel p) {
         p.setSize(750, 430);
         p.setLocation(0, 0);
-        
+
         content.removeAll();
         content.add(p, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -274,11 +274,11 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoadDataActionPerformed
 
     private void btnSeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeDataActionPerformed
-        //ShowJPanel(new Returns());
+        ShowJPanel(new seeData());
     }//GEN-LAST:event_btnSeeDataActionPerformed
 
     private void btnSingOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingOffActionPerformed
-        
+
         int confirm;
         confirm = JOptionPane.showConfirmDialog(rootPane, "ARE YOU SURE TO LEAVE?", "SIGN OFF", JOptionPane.WARNING_MESSAGE);
         if (confirm == 0) {
