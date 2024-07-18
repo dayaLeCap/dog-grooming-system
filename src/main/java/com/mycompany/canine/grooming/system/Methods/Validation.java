@@ -1,4 +1,4 @@
-package com.mycompany.canine.grooming.system.Clases;
+package com.mycompany.canine.grooming.system.Methods;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
