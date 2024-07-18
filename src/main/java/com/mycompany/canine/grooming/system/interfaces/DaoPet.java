@@ -7,5 +7,5 @@ public interface DaoPet {
 
     public void registerPet(Owner owner, Pet pet);
 
-    public void deletePet(Owner owner, Pet pet);
+    public void deletePet(Pet pet, Owner owner);
 }
