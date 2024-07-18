@@ -54,4 +54,30 @@ public class PetImplemented implements DaoPet {
         }
 
     }
+
+    @Override
+    public void deletePet(Owner owner, Pet pet) {
+        final String SQL_DELETE_PET = "DELETE FROM pet WHERE `pet`.`customer_number` = ?";
+        final String SQL_DELETE_OWNER = "DELETE FROM owner WHERE `owner`.`idOwner` =  ? ";
+
+        try {
+            Connection c = conex.Connect();
+            PreparedStatement pstDeletePet = c.prepareStatement(SQL_DELETE_PET);
+            PreparedStatement pstDeleteOwner = c.prepareStatement(SQL_DELETE_OWNER);
+
+            pstDeletePet.setInt(1, pet.getCustomer_number());
+            pstDeleteOwner.setInt(1, owner.getId_Owner());
+
+            pstDeleteOwner.executeUpdate();
+            pstDeleteOwner.executeUpdate();
+
+            conex.closeConnection();
+
+            pstDeleteOwner.close();
+            pstDeleteOwner.close();
+
+        } catch (SQLException e) {
+            System.out.println("error when deleting pet and owner: " + e.getMessage());
+        }
+    }
 }
