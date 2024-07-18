@@ -54,7 +54,7 @@ public class welcome extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setBackground(new java.awt.Color(255, 204, 204));
 
         image.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perro.png"))); // NOI18N
