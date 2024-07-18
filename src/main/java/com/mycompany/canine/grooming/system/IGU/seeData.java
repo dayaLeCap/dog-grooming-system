@@ -1,10 +1,16 @@
 package com.mycompany.canine.grooming.system.IGU;
 
+import com.mycompany.canine.grooming.system.Clases.Owner;
+import com.mycompany.canine.grooming.system.Clases.Pet;
+import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import com.mycompany.canine.grooming.system.Methods.Props;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class seeData extends javax.swing.JPanel {
+
+    PetImplemented petImplemented = new PetImplemented();
 
     String headboard[] = {"ID PET",
         "DOG NAME",
@@ -20,14 +26,14 @@ public class seeData extends javax.swing.JPanel {
     public seeData() {
         initComponents();
         InitStyles();
-        this.ocultarColumnas();
-        Props.loadDataIntoTable(defaultTableModel, jTable1);
+        // this.ocultarColumnas();
+        Props.loadDataIntoTable(defaultTableModel, btlData);
     }
 
     private void ocultarColumnas() {
-        jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
-        jTable1.getColumnModel().getColumn(0).setMinWidth(0);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+        btlData.getColumnModel().getColumn(0).setMaxWidth(0);
+        btlData.getColumnModel().getColumn(0).setMinWidth(0);
+        btlData.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
     private void InitStyles() {
@@ -63,7 +69,7 @@ public class seeData extends javax.swing.JPanel {
         editButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btlData = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,8 +125,8 @@ public class seeData extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btlData.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btlData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -136,13 +142,13 @@ public class seeData extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btlData.getTableHeader().setReorderingAllowed(false);
+        btlData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTable1MousePressed(evt);
+                btlDataMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(btlData);
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -201,31 +207,42 @@ public class seeData extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+    private void btlDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btlDataMousePressed
 
-    }//GEN-LAST:event_jTable1MousePressed
+    }//GEN-LAST:event_btlDataMousePressed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         //   Dashboard.ShowJPanel(new UpBooks());
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        /*
-          DAOBooks dao = new DAOBooksImpl();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        if (jTable1.getSelectedRows().length < 1) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Debes seleccionar uno o más libros a eliminar.\n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else {
-            for (int i : jTable1.getSelectedRows()) {
-                try {
-                    dao.eliminar((int) jTable1.getValueAt(i, 0));
-                    model.removeRow(i);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+        int rowsSelected[] = btlData.getSelectedRows();
+        if (rowsSelected.length == 0) {
+            JOptionPane.showMessageDialog(null, "!PLEASE SELECT ONE OR MORE ROWS FOR!", "ATTENTION", JOptionPane.WARNING_MESSAGE);
+            return;
         }
-         */
+
+        String ids = "";
+        for (int i = 0; i < rowsSelected.length; i++) {
+            int idPet = (int) btlData.getValueAt(rowsSelected[i], 0);
+            if (!ids.isEmpty()) {
+                ids += ", ";
+            }
+            ids += "" + idPet;
+        }
+
+        int option = JOptionPane.showConfirmDialog(null, "Are you sure to delete the records with ID: " + ids, "ATTENTION", JOptionPane.WARNING_MESSAGE);
+        if (option == 0) {
+            for (int i = rowsSelected.length - 1; i >= 0; i--) {
+                int idPet = (int) btlData.getValueAt(rowsSelected[i], 0);
+                int idOwner = idPet;
+                Pet pet = new Pet(idPet);
+                Owner owner = new Owner(idOwner);
+                petImplemented.deletePet(pet, owner);
+                defaultTableModel.removeRow(rowsSelected[i]);
+            }
+            JOptionPane.showMessageDialog(null, "DELETED RECORDS", "ATTENTION", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -262,10 +279,10 @@ public class seeData extends javax.swing.JPanel {
     private javax.swing.JButton addButton;
     private javax.swing.JPanel bg;
     private javax.swing.JTextField bookSearch;
+    private javax.swing.JTable btlData;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton searchButton;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
