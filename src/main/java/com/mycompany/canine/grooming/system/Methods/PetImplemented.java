@@ -56,9 +56,9 @@ public class PetImplemented implements DaoPet {
     }
 
     @Override
-    public void deletePet(Owner owner, Pet pet) {
-        final String SQL_DELETE_PET = "DELETE FROM pet WHERE `pet`.`customer_number` = ?";
-        final String SQL_DELETE_OWNER = "DELETE FROM owner WHERE `owner`.`idOwner` =  ? ";
+    public void deletePet(Pet pet, Owner owner) {
+        final String SQL_DELETE_PET = "DELETE FROM pet WHERE customer_number = ?";
+        final String SQL_DELETE_OWNER = "DELETE FROM owner WHERE idOwner =  ? ";
 
         try {
             Connection c = conex.Connect();
@@ -66,9 +66,8 @@ public class PetImplemented implements DaoPet {
             PreparedStatement pstDeleteOwner = c.prepareStatement(SQL_DELETE_OWNER);
 
             pstDeletePet.setInt(1, pet.getCustomer_number());
+            pstDeletePet.executeUpdate();
             pstDeleteOwner.setInt(1, owner.getId_Owner());
-
-            pstDeleteOwner.executeUpdate();
             pstDeleteOwner.executeUpdate();
 
             conex.closeConnection();
