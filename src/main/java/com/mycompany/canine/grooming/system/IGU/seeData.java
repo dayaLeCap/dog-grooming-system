@@ -56,7 +56,7 @@ public class seeData extends javax.swing.JPanel {
 
         title.setText("Pets");
 
-        searchButton.setBackground(new java.awt.Color(255, 153, 153));
+        searchButton.setBackground(new java.awt.Color(255, 51, 51));
         searchButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Buscar");
@@ -68,7 +68,7 @@ public class seeData extends javax.swing.JPanel {
             }
         });
 
-        deleteButton.setBackground(new java.awt.Color(255, 153, 153));
+        deleteButton.setBackground(new java.awt.Color(255, 51, 51));
         deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         deleteButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteButton.setText("Borrar");
@@ -80,7 +80,7 @@ public class seeData extends javax.swing.JPanel {
             }
         });
 
-        editButton.setBackground(new java.awt.Color(255, 153, 153));
+        editButton.setBackground(new java.awt.Color(255, 51, 51));
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         editButton.setForeground(new java.awt.Color(255, 255, 255));
         editButton.setText("Editar");
@@ -92,7 +92,7 @@ public class seeData extends javax.swing.JPanel {
             }
         });
 
-        addButton.setBackground(new java.awt.Color(255, 153, 153));
+        addButton.setBackground(new java.awt.Color(255, 51, 51));
         addButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Nuevo");
