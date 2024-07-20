@@ -30,7 +30,7 @@ public class Pet {
         this.owner = owner;
     }
 
-    public Pet(int customer_number, String name, String race, String color, String allergic, String special_attention, String observations, Owner owner) {
+    public Pet(int customer_number, String name, String race, String color, String allergic, String special_attention, String observations) {
         this.customer_number = customer_number;
         this.name = name;
         this.race = race;
@@ -38,7 +38,6 @@ public class Pet {
         this.allergic = allergic;
         this.special_attention = special_attention;
         this.observations = observations;
-        this.owner = owner;
     }
 
     public int getCustomer_number() {
