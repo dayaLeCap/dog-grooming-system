@@ -5,13 +5,21 @@ import com.mycompany.canine.grooming.system.Clases.Pet;
 import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import com.mycompany.canine.grooming.system.Methods.Props;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class seeData extends javax.swing.JPanel {
 
+    //variables for search functionality
+    private TableRowSorter sorterPet;
+    String filterName;
+    
     PetImplemented petImplemented = new PetImplemented();
-
+    
     String headboard[] = {"ID PET",
         "DOG NAME",
         "DOG RACE",
@@ -22,39 +30,55 @@ public class seeData extends javax.swing.JPanel {
         "OWNER",
         "PHONE"};
     DefaultTableModel defaultTableModel = new DefaultTableModel(headboard, 0);
-
+    
     public seeData() {
         initComponents();
         InitStyles();
         // this.ocultarColumnas();
-        Props.loadDataIntoTable(defaultTableModel, btlData);
+        Props.loadDataIntoTable(defaultTableModel, tblData);
     }
-
+    
     private void InitStyles() {
         title.putClientProperty("FlatLaf.styleClass", "h1");
         title.setForeground(Color.black);
-        bookSearch.putClientProperty("JTextField.placeholderText", "Ingrese el título del libro a buscar.");
+        txtSearch.putClientProperty("JTextField.placeholderText", "Enter the name of the pet to search");
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        bookSearch = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btlData = new javax.swing.JTable();
+        tblData = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
         title.setText("Pets");
+
+        txtSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSearchMouseClicked(evt);
+            }
+        });
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchKeyTyped(evt);
+            }
+        });
 
         searchButton.setBackground(new java.awt.Color(255, 51, 51));
         searchButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -104,8 +128,8 @@ public class seeData extends javax.swing.JPanel {
             }
         });
 
-        btlData.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        btlData.setModel(new javax.swing.table.DefaultTableModel(
+        tblData.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,13 +145,13 @@ public class seeData extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        btlData.getTableHeader().setReorderingAllowed(false);
-        btlData.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblData.getTableHeader().setReorderingAllowed(false);
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btlDataMousePressed(evt);
+                tblDataMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(btlData);
+        jScrollPane1.setViewportView(tblData);
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -150,7 +174,7 @@ public class seeData extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(bookSearch)
+                                .addComponent(txtSearch)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(searchButton)))
                         .addGap(50, 50, 50))))
@@ -162,7 +186,7 @@ public class seeData extends javax.swing.JPanel {
                 .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
@@ -186,34 +210,34 @@ public class seeData extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btlDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btlDataMousePressed
+    private void tblDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMousePressed
 //
-    }//GEN-LAST:event_btlDataMousePressed
+    }//GEN-LAST:event_tblDataMousePressed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         Dashboard.ShowJPanel(new refillData());
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int rowsSelected[] = btlData.getSelectedRows();
+        int rowsSelected[] = tblData.getSelectedRows();
         if (rowsSelected.length == 0) {
             JOptionPane.showMessageDialog(null, "!PLEASE SELECT ONE OR MORE ROWS FOR!", "ATTENTION", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
+        
         String ids = "";
         for (int i = 0; i < rowsSelected.length; i++) {
-            int idPet = (int) btlData.getValueAt(rowsSelected[i], 0);
+            int idPet = (int) tblData.getValueAt(rowsSelected[i], 0);
             if (!ids.isEmpty()) {
                 ids += ", ";
             }
             ids += "" + idPet;
         }
-
+        
         int option = JOptionPane.showConfirmDialog(null, "Are you sure to delete the records with ID: " + ids, "ATTENTION", JOptionPane.WARNING_MESSAGE);
         if (option == 0) {
             for (int i = rowsSelected.length - 1; i >= 0; i--) {
-                int idPet = (int) btlData.getValueAt(rowsSelected[i], 0);
+                int idPet = (int) tblData.getValueAt(rowsSelected[i], 0);
                 int idOwner = idPet;
                 Pet pet = new Pet(idPet);
                 Owner owner = new Owner(idOwner);
@@ -225,44 +249,77 @@ public class seeData extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        /*
-          if (jTable1.getSelectedRow() > -1) {
+        int row = tblData.getSelectedRow();
+        if (row > -1) {
             try {
-                int bookId = (int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
-                DAOBooks dao = new DAOBooksImpl();
-                Dashboard.ShowJPanel(new UpBooks(dao.getBookById(bookId)));
+                int itPet = (int) tblData.getValueAt(row, 0);
+                Dashboard.ShowJPanel(new refillData(petImplemented.getPetInformation(itPet), petImplemented.getOwnerInformation(itPet)));
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("error when selecting row: " + e.toString());
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Debes seleccionar el libro a editar.\n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a row!", "ATTENTION", JOptionPane.INFORMATION_MESSAGE);
         }
-         */
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        /*
-           try {
-            DAOBooks dao = new DAOBooksImpl();
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            dao.listar(bookSearch.getText()).forEach((u) -> model.addRow(new Object[]{u.getId(), u.getTitle(), u.getDate(), u.getAuthor(), u.getCategory(), u.getEdit(), u.getLang(), u.getPages(), u.getDescription(), u.getEjemplares(), u.getStock(), u.getAvailable()}));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+//
+        if (txtSearch.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "PLEASE WRITE THE NAME OF THE PET TO BE SEARCHED", "ATTENTION", JOptionPane.WARNING_MESSAGE);
         }
-         */
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
+        sorterPet = new TableRowSorter(tblData.getModel());
+        tblData.setRowSorter(sorterPet);
+    }//GEN-LAST:event_txtSearchKeyTyped
+
+    private void txtSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSearchMouseClicked
+        this.search();
+    }//GEN-LAST:event_txtSearchMouseClicked
+    
+    private void filter() {
+        if (txtSearch == null) {
+            
+        } else {
+            try {
+                filterName = txtSearch.getText();
+                sorterPet.setRowFilter(RowFilter.regexFilter(filterName, 1));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "An error occurred while searching", "ATTENTION", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
+    
+    private void search() {
+        txtSearch.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = txtSearch.getText();
+                txtSearch.setText(cadena);
+                repaint();
+
+                // Verificar si trsFiltro está inicializado antes de llamar a filtro()
+                if (sorterPet != null) {
+                    filter();
+                }
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JPanel bg;
-    private javax.swing.JTextField bookSearch;
-    private javax.swing.JTable btlData;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTable tblData;
     private javax.swing.JLabel title;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
