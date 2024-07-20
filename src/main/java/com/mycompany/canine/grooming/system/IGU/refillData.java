@@ -5,15 +5,28 @@ import com.mycompany.canine.grooming.system.Clases.Pet;
 import com.mycompany.canine.grooming.system.Methods.Validation;
 import com.mycompany.canine.grooming.system.Methods.PetImplemented;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class refillData extends javax.swing.JPanel {
-    
+
+    private boolean isEdition = false;
+    Pet petEdition;
+    Owner ownerEdition;
+
     public refillData() {
         initComponents();
         estilosIniciales();
     }
-    
+
+    public refillData(Pet pet, Owner owner) {
+        initComponents();
+        isEdition = true;
+        this.petEdition = pet;
+        this.ownerEdition = owner;
+        estilosIniciales();
+    }
+
     private void estilosIniciales() {
         title.putClientProperty("FlatLaf.styleClass", "h1");
         title.setForeground(Color.black);
@@ -22,8 +35,26 @@ public class refillData extends javax.swing.JPanel {
         txtColor.putClientProperty("JTextField.placeholderText", "Enter Dog Color");
         txtOwnersName.putClientProperty("JTextField.placeholderText", "Enter Dog Owner");
         txtCellOwner.putClientProperty("JTextField.placeholderText", "Enter the Owner's Cell Phone");
+        if (isEdition) {
+            title.setText("Edit Pet and Owner");
+            btnIncrese.setText("Save");
+
+            if (petEdition != null && ownerEdition != null) {
+                //pet
+                txtDogName.setText(petEdition.getName());
+                txtRace.setText(petEdition.getRace());
+                txtColor.setText(petEdition.getColor());
+                cbxAllergic.setSelectedItem(petEdition.getAllergic());
+                cbxSpecialAttention.setSelectedItem(petEdition.getSpecial_attention());
+                txtObservations.setText(petEdition.getObservations());
+
+                //owner
+                txtOwnersName.setText(ownerEdition.getName());
+                txtCellOwner.setText(ownerEdition.getCellOwner() + "");
+            }
+        }
     }
-    
+
     private void cleanFields() {
         String m = "";
         txtCellOwner.setText(m);
@@ -35,18 +66,13 @@ public class refillData extends javax.swing.JPanel {
         //para los combo box
         cbxAllergic.setSelectedIndex(0);
         cbxSpecialAttention.setSelectedIndex(0);
-        
+
     }
-    
+
     private void registerData() {
         String field = Validation.fieldValidations(txtDogName, txtRace, txtColor, cbxAllergic, cbxSpecialAttention, txtOwnersName, txtCellOwner, txtObservations);
-        
-        if (field.equals("")) {
-            //int customer_number;
 
-            PetImplemented petImplemented = new PetImplemented();
-            
-            Owner owner = new Owner();
+        if (field.equals("")) {
             //owner attributes
             //int idOwner;
             String nameOwner;
@@ -55,10 +81,7 @@ public class refillData extends javax.swing.JPanel {
             //Owner
             nameOwner = txtOwnersName.getText();
             cellOwner = Integer.parseInt(txtCellOwner.getText());
-            owner.setName(nameOwner);
-            owner.setCellOwner(cellOwner);
-            
-            Pet pet = new Pet();
+
             //pet attributes
             String name;
             String race;
@@ -74,25 +97,48 @@ public class refillData extends javax.swing.JPanel {
             special_attention = cbxSpecialAttention.getSelectedItem().toString();
             observations = txtObservations.getText();
 
-            //we set the data to the objects
-            pet.setName(name);
-            pet.setRace(race);
-            pet.setColor(color);
-            pet.setAllergic(allergic);
-            pet.setSpecial_attention(special_attention);
-            pet.setObservations(observations);
-            pet.setOwner(owner);
+            Pet pet1 = isEdition ? petEdition : new Pet();
+            Owner owner1 = isEdition ? ownerEdition : new Owner();
 
-            //we invoke the register-Pet method
-            petImplemented.registerPet(owner, pet);
-            JOptionPane.showMessageDialog(null, "Pet Successfully Registered", "dog name", JOptionPane.INFORMATION_MESSAGE);
-            this.cleanFields();
+            //we set the data to the objects
+            owner1.setName(nameOwner);
+            owner1.setCellOwner(cellOwner);
+
+            pet1.setName(name);
+            pet1.setRace(race);
+            pet1.setColor(color);
+            pet1.setAllergic(allergic);
+            pet1.setSpecial_attention(special_attention);
+            pet1.setObservations(observations);
+            pet1.setOwner(owner1);
+
+            try {
+                PetImplemented implemented = new PetImplemented();
+                if (!isEdition) {
+                    implemented.registerPet(owner1, pet1);
+                } else {
+                    this.cleanFields();
+                    implemented.modifyPetAndOwner(owner1, pet1);
+                }
+
+                String message = isEdition ? "MODIFIED" : "REGISTERED";
+
+                JOptionPane.showMessageDialog(null, "PET AND OWNER HAVE BEEN " + message + "\n", "WARNING", JOptionPane.INFORMATION_MESSAGE);
+                if (!isEdition) {
+                    this.cleanFields();
+                }
+            } catch (HeadlessException e) {
+                String message = isEdition ? "AN ERROR OCCURRED WHEN MODIFYING A PET AND ITS OWNER" : "AN ERROR OCCURRED WHEN REGISTERING A PET AND ITS OWNER";
+                JOptionPane.showMessageDialog(null, message, "WARNING", JOptionPane.WARNING_MESSAGE);
+                System.out.println("WARNING: " + e.toString());
+            }
         } else {
+
             JOptionPane.showMessageDialog(null, "VERIFY THE DATA IN THE FIELD: " + field, field, HEIGHT);
         }
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
