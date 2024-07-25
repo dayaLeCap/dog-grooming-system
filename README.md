@@ -1,12 +1,12 @@
-##UNIVERSIDAD CENTRAL DEL ECUADOR
-    Facultad de Ingeniería y Ciencias Aplicadas
+UNIVERSIDAD CENTRAL DEL ECUADOR
+Facultad de Ingeniería y Ciencias Aplicadas
 
-  COLLABORATORS:
-  **Dayana Lema
-  **Daniela Yumbo
+COLLABORATORS:
+**Dayana Lema
+**Daniela Yumbo
 
-  DATE:
-  24 - 07 - 2024
+DATE:
+24 - 07 - 2024
 
 # Dog groomer
 
@@ -41,7 +41,7 @@ Database: MySQL 8.0.33.
 
 
 ## Main screen
-
+	
 ![image](https://github.com/user-attachments/assets/05036f78-ac38-45ad-9be8-478700b23c18)
 
 
@@ -57,7 +57,6 @@ Database: MySQL 8.0.33.
 
 ***Save the information.
 
-Example
 
 ![image](https://github.com/user-attachments/assets/bb60850f-2371-4193-8b72-45306a3de3c7)
 
@@ -67,11 +66,11 @@ Example
 ![image](https://github.com/user-attachments/assets/33450a9f-c749-4741-b2e1-378dc9b0fc8f)
 
 3. Elimination of records as well as that of the pets and their Owner.
-   
+
 ![image](https://github.com/user-attachments/assets/741106ea-589b-4253-bc73-0a241ffdb761)
 
 4. Edit pet and owner information
-   ![image](https://github.com/user-attachments/assets/88bcfbf9-a67c-4fef-b074-37b8ce45d8db)
+![image](https://github.com/user-attachments/assets/88bcfbf9-a67c-4fef-b074-37b8ce45d8db)
 
 ## Example of registration in the database
 ***Owner
@@ -82,7 +81,7 @@ Example
 
 
 
-   
+
 
 
 
