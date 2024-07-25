@@ -1,11 +1,16 @@
 UNIVERSIDAD CENTRAL DEL ECUADOR
+
+
 Facultad de Ingeniería y Ciencias Aplicadas
 
 COLLABORATORS:
+
 **Dayana Lema
+
 **Daniela Yumbo
 
 DATE:
+
 24 - 07 - 2024
 
 # Dog groomer
