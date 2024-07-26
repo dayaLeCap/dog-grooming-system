@@ -19,6 +19,63 @@ PROYECT DESCRIPTION:
 
 **Dog Grooming  is a desktop application designed to manage the information of dogs and their owners in a dog grooming center. The app allows you to record and maintain relevant data about grooming services, including appointments, services performed, and details of owners and their pets.
 
+
+## Functional Requirements
+
+1. **Owner and Pet Registration**
+   - Register owner information (name and cell phone number).
+   - Register pet information (name, breed, color, allergies, special attention, observations).
+   - Associate each pet with an owner.
+
+2. **Data Management**
+   - Modify owner and pet data.
+   - Delete owner and pet records.
+   - Retrieve specific information about pets and owners.
+
+3. **Data Visualization**
+   - Load and display data in a visual table in the user interface.
+   - View service history provided to pets.
+
+4. **Database Interaction**
+   - Connect to a MySQL database to store and retrieve information.
+   - Ensure data integrity and consistency during CRUD operations (Create, Read, Update, Delete).
+
+5. **Validations**
+   - Validate all input fields to ensure correct and complete information.
+   - Provide appropriate error messages when information does not meet established requirements.
+
+## Non-Functional Requirements
+
+1. **Performance**
+   - The system should respond to user requests in a reasonable time.
+   - Data loading and database update operations should be performed efficiently.
+
+2. **Usability**
+   - The user interface should be intuitive and easy to use.
+   - Navigation within the application should be clear and consistent.
+
+3. **Security**
+   - The system should protect sensitive user and pet information.
+   - The database connection should be secure to prevent unauthorized access.
+
+4. **Maintenance**
+   - The code should be modular and well-documented to facilitate maintenance and future updates.
+   - The application should follow coding standards to ensure its quality and maintainability.
+
+5. **Compatibility**
+   - The system should be compatible with JDK 21.
+   - The system should be compatible with MySQL 8.0.33.
+   - The application should run on multiple platforms and operating systems.
+
+6. **Scalability**
+   - The system should be scalable to handle an increase in the amount of data and users without compromising performance.
+
+
+
+...
+
+
+
 ##Main Methods and Classes
 
 
